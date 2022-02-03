@@ -4,35 +4,34 @@
 
 There are two ways to create an array:
 
-1. If you know the size of the array, but there is **no specific initial values**, use the keyword **new** to create. When you use this way to create an array, default values will be given to each elements.
+1. If you know the size of the array, but there is **no specific initial values**, use the keyword **new** to create the array. As a result, default values will be given to each elements based on the array data type.
+
+| Data type                         | Default value               |
+| --------------------------------- | --------------------------- |
+| double, int, char (or any number) | 0                           |
+| boolean                           | false                       |
+| String                            | null, not empty string ("") |
+| any class	                    | null                        |
+
 
 ```java
-/Declaration and array-creation expression for an array of 12 int elements
+//Declaration and array-creation expression for an array of 12 int elements
 	int[] c = new int[12];
-Can be performed in two steps as follows:
+//Can be performed in two steps as follows:
 	int[] c; // declare the array variable
 	c = new int[12]; // creates the array
 
 ```
 
-Default values are given based on the data type:
-
-| Data type                         | Default value-              |
-| --------------------------------- | --------------------------- |
-| double, int, char (or any number) | 0                           |
-| boolean                           | false                       |
-| String                            | null, not empty string ("") |
-| Clock (any class)                 | null                        |
-
-2. If you not only know the size of the array, but also want to **initialize it with specific values**, use **{}** to initialize it:
+2. You can also declare the array and **initialize it with specific values**, use **{}**:
 
 ```java
+//Creates a five-element array with index values 0â€“4. 
 int[] n = {10, 20, 30, 40, 50};
-Creates a five-element array with index values 0–4. 
 
 ```
 
-##  How to visit elements in an array
+##  How to visit each element in an array
 
 An array is very similar to a string.
 
@@ -43,16 +42,18 @@ An array is very similar to a string.
 | Modify an element | Does not exist    | `array[idx]`   |
 
 
-
 ##  Arrays class
 
-Java provides us an `Arrays` class which contains many useful methods related to array.
 
-### . print the entire array
+Provides static methods for common array manipulations. This class contains many useful methods for operations on arrays.
+You will encounter many situations where you can use these methods in your code. Please check the course notes.
+
+### print the entire array
 
 For a class, we should override the `toString()` method, so it does not give us the address of the object.
 
 For an Array, we can directly call `Arrays.toString(array)`, which returns a string to represent the array. However, the output format is fixed and you cannot customize it.
+
 ### Example 1
 Write a Java program that creates an array of five Strings containing the first names of people in your family. Write a program that counts and displays the total number of vowels (both uppercase and lowercase) in all five Strings that you entered.  
 ```java
@@ -76,6 +77,45 @@ String[] names = {"Sanad", "Taha", "Ahad", "Shahd", "Anas"};
 ```
 
 If you want to customize the output format, create a loop to go through the array by yourself.
+
+### Example 1
+ Write an application that can hold five integers in an array. Call a method Display that accepts the array as an argument and print the elements from first to last, and then display them from last to first
+ ```java
+ 
+ public static void display(int[] arr) {
+        int i;
+        for (i = 0; i < arr.length; i++) {
+            System.out.println(" " + arr[i] + "");
+        }
+        System.out.println();
+        for (i = arr.length - 1; i >= 0; i--) {
+            System.out.println(" " + arr[i] + "");
+        }
+
+```
+
+### Example 2
+ Create an application containing an array that stores 10 prices, such as $2.34, $7.89, $1.34, and so on. The application should (1) display the sum of all the
+  prices, (2) display all values less than $5.00
+ ```java
+ 
+public static double getTotal(double[] arr) {
+        double total = 0.0;
+        for (int i = 0; i < arr.length; i++) {
+            total += arr[i];
+        }
+        return total;
+    }
+
+    public static void lessThanFive(double[] arr) {
+        double CUTOFF = 5.0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < CUTOFF)
+                System.out.println(arr[i] + " is less than "+CUTOFF);
+        }
+    }
+
+```
 ### Example 2
 Write a Java program to find the second largest element in an array.  
 ```java
@@ -232,8 +272,8 @@ There is another kind of loop we can use when we deal with collections (not incl
 | local variable                                | most of time, you create `int i`                             | the data type of the variable is the same as the data type of the array , and that's the reason you should name any array plural. |
 | read as                                       |                                                              | `for (double num : nums)` can be read as "*for each `num` in `nums`*" |
 | reading                                       | ?                                                            | ?                                                            |
-| writing                                       | ?                                                            | ×                                                            |
-| visit more than one collections synchronously | ?                                                            | ×                                                            |
+| writing                                       | ?                                                            | Ã—                                                            |
+| visit more than one collections synchronously | ?                                                            | Ã—                                                            |
 
 ### 5.3 Using enhanced-for loop to read elements (YOU SHOULD)
 
