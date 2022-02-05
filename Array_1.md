@@ -193,7 +193,38 @@ String[] names = {"Sanad", "Taha", "Ahad", "Shahd", "Anas"};
         }
       System.out.println("count ="+count);
 ```
+### Lab_1 
+Write a Java program that will accept 2 integer values; the first is the size of the single-dimensional array (which you can assume is odd and at least 5) and the second is 
+the starting value to fill the array with. After creating the array of the specified size, fill the array starting with the 2nd integer entered 
+in the last position and incremented by 3 for each previous position. Display the resulting array. Once this is done rotate all the entries with even indexes 2 positions to the left (if the size is 5, whatever is in index location 4 is stored in index position 2, whatever is in 2, is stored in index position 0, and so on). The first entry is to be stored in the last location (size -1) of the array. Display the resulting array. 
 
+```java
+	Scanner scanner = new Scanner(System.in);
+	System.out.print("What size do you want your array to be (minimum size 5" + " and an odd number)? ");
+	int arraySize = scanner.nextInt();
+	System.out.print("Starting integer value: ");
+	int startingValue = scanner.nextInt();
+	System.out.println();
+	int[] theArray = new int[arraySize];
+	for(int i = theArray.length - 1; i >= 0; i--) {
+		theArray[i] =  startingValue;
+		startingValue += 3;
+	}
+	System.out.println("Original array:");
+	for(int i = 0; i < theArray.length; i++) {
+		System.out.print(theArray[i] + "\t");
+	}
+	System.out.println();
+	for(int i = 0; i < theArray.length - 1; i += 2) {
+		 int temp = theArray[i];
+		 theArray[i] = theArray[i + 2];
+		 theArray[i + 2] = temp;
+	}
+	System.out.println("\nArray after rotation:");
+	for(int i = 0; i < theArray.length; i++) {
+		System.out.print(theArray[i] + "\t");
+	}
+```
 ### Compare two arrays
 
 Usually we create an `equals()` method in the class to compare two objects. For array, we can directly call `Arrays.equals()` to compare two arrays.
