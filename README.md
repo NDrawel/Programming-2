@@ -1,2 +1,2 @@
 # Programming-2
-The source code for labs and examples 
+This repository contains materials for Programming 2 (Java) course (Winter 2022).
