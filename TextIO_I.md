@@ -2,12 +2,12 @@
 
 ## 1. What Is TextIO
 
-If a programmer want to communicate with computer, she/he can use console. However, if you want to send data to your colleague who is not a programmer, she/he may send you data in excel or a text file, in this case, you need read data from the file, then process the data, and in the end write it to another excel file or a text file. To read and write data from external text files is called Java `TextIO`, where:
+If a programmer want to communicate with computer, she/he can use console. However, if you want to send data to your colleague who is not a programmer, she/he may send you data in excel or a text file, in this case, you need to read data from the file,  process the data, and then  write it to another excel file or a text file. Reading and writing data from external text files is called Java `TextIO`, where:
 
 - `I` stands for `input`: reading data from an external file to Java
 - `O` stands for `output`: writing data from Java to an external file
 
-Also, we should understand that the extension of a file have nothing to do with the context (data) of a file. For example, if we have `1 2 3` in a file, then no matter the file is called `data.txt` or `data.yi` or just `data` with no extension, the data are the same. The extension only will tell the OS that the data are suppose to follow a specific structure, so the OS can open it with a specific application.
+Also, we should understand that the extension of a file have nothing to do with the context (data) of a file. For example, if we have `1 2 3` in a file, then no matter the file is called `data.txt`or just `data` with no extension, the data are the same. The extension only will tell the OS that the data are suppose to follow a specific structure, so the OS can open it with a specific application.
 
 When we talk about `TextIO`, it means reading and writing text type context (data), not image, not movie or zip, it is not necessary the file should be a `.txt` file.
 
@@ -25,7 +25,7 @@ In Programming 1 we have learned how to read and write data through the console:
 
 ```java
 // output:
-	System.out.print();
+    System.out.print();
     System.out.println();
     System.out.printf();
 
@@ -86,10 +86,10 @@ Generally there are 3 steps to read from a file:
 
    ```java
    try (Scanner input = new Scanner(file)) {
-       String str = input.nextDouble();		// read a string
+       String str = input.nextDouble();		                // read a string
        String str2 = input.next();				// read a string
        int num = input.nextInt();				// read an int
-       double num2 = input.nextDouble();		// read a double
+       double num2 = input.nextDouble();		        // read a double
    }
    catch (IOException e) {
        System.out.println(String.format("File %s does not exist", path));
@@ -138,7 +138,7 @@ public static void readFile(String path) {
 }
 ```
 
-Once we have the entire line, we don't need to worry about the TextIO anymore, since the data is stored in row, and we only have to extract them from the `row`. We can use the `split()` method in the `String` class, which will chop a String into many substring, we have to indicate what symbol will be used to chop the string. Now the value of `row` is `1 Adin Ashby 98` , there are four part in the string, and separated by spaces. We can use `String[] strs = row.split(" ");` to split the row and keep the result in a String array.
+Once we have the entire line, we don't need to worry about the TextIO anymore, since the data is stored in row, and we only have to extract them from the `row`. We can use the `split()` method in the `String` class, which will chop a String into many substring, we have to indicate what symbol will be used to chop the string. Now the value of `row` is `1234 Sanad Smith 88.9` , there are four part in the string, and separated by spaces. We can use `String[] strs = row.split(" ");` to split the row and keep the result in a String array.
 
 ```java
 public static void readFile(String path) {
@@ -237,7 +237,7 @@ public static ArrayList<Student> readStudentData(String path) {
 
         while (input.hasNext()) {           // read multi-row
             String row = input.nextLine();
-            String[] data = row.split(" ");     // {"0001", "adin", "ashby", "registered", "98", "78"}
+            String[] data = row.split(" ");     // {"1234", "Sanad", "Smith", "registered", "88.9", "78.5"}    
 
             String id = data[0];
             String fname = toTitleCase(data[1]);
