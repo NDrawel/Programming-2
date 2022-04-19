@@ -55,7 +55,7 @@ public static void writeFile(String path, int num) {
     try (FileWriter fw = new FileWriter(file, true)) {
         fw.write(num + "\n");
         //            PrintWriter pw = new PrintWriter(fw);
-        //            pw.println(pw);
+        //            pw.println(num + "\n");
     } catch (IOException e) {
         System.out.println("Writing file failed");
     }
