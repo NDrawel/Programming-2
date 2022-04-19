@@ -168,7 +168,7 @@ public static Student readFile(String path) {
         System.out.println(String.format("File %s does not exist", path));
     }
 
-    return str;
+    return stu;
 }
 ```
 
